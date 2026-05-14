@@ -1,6 +1,6 @@
 const CACHE = 'citta-v1';
 const ASSETS = [
-  './catalog.html',
+  './index.html',
   './manifest.json'
 ];
 
@@ -24,7 +24,7 @@ self.addEventListener('fetch', function(e){
   e.respondWith(
     caches.match(e.request).then(function(cached){
       return cached || fetch(e.request).catch(function(){
-        return caches.match('./catalog.html');
+        return caches.match('./index.html');
       });
     })
   );
